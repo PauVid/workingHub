@@ -57,4 +57,14 @@ for (const aprobado of allMyAprobados) {
     nombreDeClase.style.fontSize = "40px";
 }
 
+// console.log(myH1.innerHTML);
+// console.log(myH1.innerText);  
+// console.log(myH1.textContent);
+
+allMyAprobados.innerHTML = "He cambiado, ya no estoy aprobado";
+allMyAprobados.innerText = "He cambiado, ya no estoy aprobado"; 
+allMyAprobados.textContent = "He cambiado, ya no estoy aprobado"; // Hacen lo mismo pero este tiene sentido usarlo para textos debido a su nombre.
+
+
+
 
