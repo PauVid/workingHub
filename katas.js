@@ -45,5 +45,16 @@
 
 // document.querySelectorAll("h1") <--- Este hace lo mismo que getElements, te los trae TODOS creando una array de nodos.
 
+//LEEMOS_______________________________________________________
+const allMyAprobados = document.querySelectorAll("p.aprobado");
+
+//! __________________ACTUALIZAR__________________
+// Voy a poder actualizar todo tipo de cosas en nuestro documento HTML
+
+//ACTUALIZAMOS_____________________________
+for (const aprobado of allMyAprobados) {
+    nombreDeClase.style.color = "green";
+    nombreDeClase.style.fontSize = "40px";
+}
 
 
