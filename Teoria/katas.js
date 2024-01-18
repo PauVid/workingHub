@@ -199,3 +199,107 @@ document.body.append(alumnList);
 
 //________AHORA HEMOS CREADO UN ul Y DENTRO, CON EL BUCLE for HEMOS CREADO 6 li QUE CONTIENEN UN h3 Y UN p CADA UNO________
 
+//! LISTENERS
+
+//Lo primero que necesito para darle funcionalidad a un botón es el botón
+ const button = document.querySelector("button");
+
+function crearParrafo () {
+    const p = document.createElement("p");
+
+    p.textContent = "Soy un párrafo nuevo";
+
+    document.body.appendChild(p)
+}
+
+button.onclick = crearParrafo; // cada vez que hagamos click creará un párrafo con el texto que hemos creado dentro de la función
+button.addEventListener("click", crearParrafo); // se puede utilizar este método de igual manera
+
+// Crear una función recursiva
+button.addEventListener("click", () => crearParrafo("Soy un párrafo nuevo"));
+                                                    // ^ Para añadirle texto directamente desde el evento creando una función anónima recurrente
+
+//! contra - cuando estamos usando programación orientada a objetos 
+
+//! PRÁCTICA DOM
+
+const emojis = [😊, 😂, 🤣, 🙌, ✌, 🤷‍♂️]
+const numbers = [2345, 123, 2304, 2342, 4503, 20304, 5, 3543, 4855, 58695, 2322]
+
+
+//______________________// Cómo NO hacerlo v \\______________________\\
+
+// Selecciono el contenedor donde quiero volcar mis emojis
+const emojiDiv = document.querySelector(".insert-emoji-here");
+
+// Recorro el array de emojis para ir accediendo a ellos de uno en uno 
+for (const emoji of emojis) {
+
+    // Creamos el párrafo
+    const pemoji = document.createElement(p);
+
+    // Le damos al párrafo el valor del emoji
+    pemoji.textContent = emoji;
+
+    // Metemos el emoji dentro del contenedor
+    emojiDiv.append(pemoji);
+}
+
+
+//______________________// Cómo Hacerlo v \\______________________\\
+
+
+//! DECLARACIÓN
+// Función reutilizable
+const printDivs = (selectorPadre, array) => {
+    const div = document.querySelector(selectorPadre);
+
+    div.innerHTML = ``; //Así limpiamos el contenedor ya que innerHTML elimina todo lo que haya en el HTML y si lo ponemos vacío lo deja vacío
+
+    for (const element of array) {
+        const p = document.createElement("p");
+
+        p.textContent = element;
+
+        div.append(p);
+    }
+}
+
+// EJECUCIÓN
+
+printDivs(".insert-num-here", numbers);
+printDivs(".insert-emoji-here", emojis);
+
+
+//Ahora necesito saber que ha escrito el usuario y
+//controlar cuando quiere enviar el usuario el nuevo dato
+
+//? Primero - acceder a los elementos (input), (button)
+
+const input = document.querySelector("input");
+const button = document.querySelector("button");
+
+const insertarDato = () {
+    // saber que ha escrito el usuario
+    if (isNaN(parseInt(input.value)) === true) {
+        // Este es el código si el dato no es un número
+        emojis.push(input.value);
+    } else {
+        // Este es el código si el dato si es un número
+        numbers.push(parseInt(input.value));
+    }              // ^ parseInt hace que el input que introduce el usuario(que será tipo string) se convierta en número
+};
+
+//? Segundo - el usuario quiere enviar el nuevo dato cuando da click en el botón
+
+button.onclick = () => alert("He hecho click en el botón"); // Para comprobar que está funcionando y lo has hecho todo bien
+
+// Una vez funciona, seguimos.
+button.onclick = insertarDato;
+
+// const insertarDato = () {} LO PONEMOS ARRIBA 
+
+
+
+
+
