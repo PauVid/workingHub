@@ -17,6 +17,6 @@ console.log(document.querySelectorAll(".pokemon"));
 
 console.log(document.querySelectorAll("[data-function='testMe']"));
 
-console.log(document.querySelectorAll(3,"[data-function='testMe']"));
+console.log(document.querySelectorAll("[data-function='testMe']") [2]);
 
 
