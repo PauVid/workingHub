@@ -9,3 +9,16 @@
 // 8 Inserta una p con el texto 'Voy en medio!' entre los dos div.
 // Recuerda que no solo puedes insertar elementos con .appendChild
 // 9 Inserta con p con el texto 'Voy dentro!', dentro de todos los div con la clase .fn-insert-here
+
+
+document.querySelector("body").append("div");
+
+document.querySelector("body").append("div", "p");
+
+for (let i = 0; i < 6; i++){
+    document.querySelector("body").append("div", "p");
+};
+
+const texto = "Soy dinámico";
+document.querySelector("body").append("p", texto);
+
