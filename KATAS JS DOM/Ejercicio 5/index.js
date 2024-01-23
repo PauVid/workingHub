@@ -7,3 +7,14 @@ const albums = [
     "Painkiller",
     "Iron Fist",
 ];
+
+const libreria = document.createElement("ul");
+
+for (const album of libreria) {
+    const disco = document.createElement("li");
+    libreria.textContent = album;
+
+    libreria.append(disco);
+};
+
+document.body.append(libreria);
