@@ -19,7 +19,7 @@ try {
     console.error(error.message); // "y" is not defined
 }
 
-// El vloque catch también se puede opcpionalmente seguir de un bloque finally, que se ejecuta siempre al final, 
+// El bloque catch también se puede opcpionalmente seguir de un bloque finally, que se ejecuta siempre al final, 
 // independientemente de si se ha producido un error o no.
 
 // El bloque finally es útil para ejecutar código que siempre debe ejecutarse, como cerrar una conexión a una
