@@ -11,3 +11,11 @@ const videogames = [
     {name: 'Genshin Impact', genders:['RPG', 'Aventura'], score: 7.5},
     {name: 'Legend of Zelda: Breath of the wild', genders:['RPG'], score: 10},
 ];
+
+
+const genero = videogames.filter((filtradoGenero) => filtradoGenero.genders.includes("RPG"));
+const media = genero.reduce((accumulator, generoMedia) => accumulator + generoMedia.score, 0);
+
+const puntuacionMedia = media / genero.length;
+
+

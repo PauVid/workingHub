@@ -7,15 +7,24 @@ const users = [
     {id: 4, name: 'Amanda'}
 ];
 
+const nombres = users.map((usuario) => usuario.name);
 //4.2 Dado el siguiente array, devuelve una lista que contenga los
 // valores de la propiedad .name y cambia el nombre a 'Anacleto' en
 // caso de que empiece por 'A'
-const users = [
+const users2 = [
     {id: 1, name: 'Abel'},
     {id: 2, name: 'Julia'},
     {id: 3, name: 'Pedro'},
     {id: 4, name: 'Amanda'}
 ];
+
+const nombres2 = users2.map((usuario2) => {
+    if (usuario2.name[0] === A){
+        return "Anacleto";
+    } else {
+        return usuario2.name;
+    }
+});
 
 //4.3 Dado el siguiente array, devuelve una lista que contenga los
 // valores de la propiedad .name y añade al valor de .name el string
@@ -26,3 +35,11 @@ const cities = [
     {isVisited: true, name:'Amsterdam'},
     {isVisited: false, name:'Seul'}
 ];
+
+const visitado = ciudades.isVisited((visitadisima) => {
+    if (visitadisima === true){
+        cities.name += "(Visitado)";
+    } else {
+        return visitadisima.name;
+    }
+});

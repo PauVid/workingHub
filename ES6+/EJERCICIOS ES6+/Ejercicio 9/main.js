@@ -26,3 +26,15 @@ const movies = [
         categories: ["comedia", "aventura", "animación"],
     },
 ];
+
+const categoriasUnicas = [];
+
+for (const pelis of movies) {
+    for (const categorias of pelis.categories) {
+        if (!categoriasUnicas.includes(categorias)) {
+            categoriasUnicas.push(category);
+        }
+    } 
+}
+
+console.log('Array de categorias sin repetir: ', categoriasUnicas);

@@ -10,4 +10,9 @@ const fantasticFour = [
     "Mr Fantástico",
     "La mujer invisible",
     "La cosa",
-    ];
+];
+
+
+function swap(array, index) = {
+    const                                                                 
+};

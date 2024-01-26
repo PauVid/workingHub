@@ -7,3 +7,25 @@
 // Finalmente retorna el array
 
 // De nuevo haz varios ejemplos para practicar y comprueba que funcionan correctamente
+
+const potterLista = [
+    {name: "Sirius Black", team: "Orden del Fénix"},
+    {name: "Fenrir Grayback", team: "Mortífago"},
+    {name: "Harry Potter", team: "Orden del Fénix"},
+    {name: "Lilly Evans", team: "Orden del Fénix"},
+    {name: "Severus Snape", team: "Orden del Fénix"},
+    {name: "Lucious Malfoy", team: "Mortífago"},
+    {name: "Tom Riddle", team: "Mortífago"},
+]
+
+
+const removeItem = (array, text) => {
+    const index = findArrayIndex(array, text); 
+    if (index !== -1) {
+        array.splice(index, 1); // elimina un elemento de la posición index
+    }
+    return array;
+}
+
+console.log(removeItem(potterLista, potterlista.name[3]));
+console.log(removeItem(potterLista, potterLista.team[4]));

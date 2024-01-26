@@ -1,5 +1,5 @@
 //5.6 Dado el siguiente JavaScript, utiliza .filter() para mostrar por consola
-// los streamersque incluyan la palabra introducida en el input. De esta forma,
+// los streamers que incluyan la palabra introducida en el input. De esta forma,
 // si introduzco 'Ru' me debería de mostrar solo el Streamer 'Rubius'.
 // Si introduzco 'i', me debería de mostrar el streamer 'Rubius' e 'Ibai'
 const streamers = [
@@ -8,3 +8,11 @@ const streamers = [
     {name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
     {name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'},
 ];
+
+const filtrado = (e) => {
+    const filtradisimo = streamers.filter((streamer) => streamer.name.includes(e.target.value));   
+}
+
+const input = document.querySelector("input");
+
+input.addEventListener("input", filtrado)

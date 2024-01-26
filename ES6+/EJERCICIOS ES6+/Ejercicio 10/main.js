@@ -35,3 +35,16 @@ const users = [
         },
     },
 ];
+
+
+let totalVolume = 0;
+let soundCount = 0;
+
+for (const user of users) {
+    for (const sound in user.favoritesSounds) {
+        totalVolume += user.favoritesSounds[sound].volume;
+        soundCount++;
+    }
+};
+
+const averageVolume = totalVolume / soundCount;
