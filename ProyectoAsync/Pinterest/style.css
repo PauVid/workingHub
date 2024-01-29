@@ -1,3 +1,53 @@
-body {
-  background-color: #242424;
+* {
+  box-sizing: border-box;
+
+  /* SPACING */
+
+  --pv-padding-s: 10px;
+  --pv-padding-m: 20px;
+  --pv-padding-l: 30px;
+  --pv-padding-xl: 40px;
+
+  --pv-margin-s: 10px;
+  --pv-margin-m: 20px;
+  --pv-margin-l: 30px;
+  --pv-margin-xl: 40px;
+
+  --pv-gap-s: 10px;
+  --pv-gap-m: 20px;
+  --pv-gap-l: 30px;
+  --pv-gap-xl: 40px;
+
+
+  /* COLORS */
+
+  --pv-primary-color: #242424;
+  --pv-secondary-color: #6B818C;
+  --pv-accent-color: #D8E4FF;
+
 }
+  /* TYPOGRAPHY */
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+h1, h2, h3, h4, h5, p, span, div, body, header, footer {
+    font-family: font-family: 'Playfair Display', serif;
+}
+
+
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--pv-accent-color);
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+
+body {
+  background-color: var(--pv-primary-color);
+}
+
+

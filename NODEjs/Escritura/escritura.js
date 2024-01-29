@@ -7,6 +7,8 @@
 
 // Esta función recibirá dos parámetros iguales a los del método readFile()
 
-fstat.writeFile("archivoNuevo.txt", "Esto es el contenido del archivo", (error, data) => {
+
+
+fs.writeFile("archivoNuevo.txt", "Esto es el contenido del archivo", (error, data) => {
     console.log("Ya se ha creado!");
 });
