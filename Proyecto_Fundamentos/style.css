@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    border: none;
+    outline: none; 
+}
+
+:root {
+    --pv-primary: #fff;
+    --pv-secondary: #202124;
+    --pv-tertiary: #e4002c;
+    font-family: Helvetica, sans-serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 25px -4px var(--pv-secondary);
+    padding: 30px;
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    border: 2px solid var(--pv-tertiary);
+    background-color: var(--pv-primary);
+}
+
+form > div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+form > div input, form > div select {
+    border: 2px solid var(--pv-tertiary);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+form > button {
+    padding: 20px 10px;
+    border-radius: 10px;
+    background-color: var(--pv-tertiary);
+    width: 50%;
+    align-self: center;
+    color: var(--pv-primary);
+    font-weight: bolder;
+    cursor: pointer;
+    transition: all, 0.5s;
+}
+
+form > button:hover {
+    box-shadow: 0px 10px 25px -4px var(--pv-secondary);
+}
+
+.productos {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+}
+
+.productos > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.productos > div h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.producto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid var(--pv-tertiary);
+}
+
+.producto > div {
+    width: 200px;
+    height: 200px;
+}
+
+.producto > div img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.no-visible {
+    display: none;
+}

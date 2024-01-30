@@ -38,3 +38,8 @@ for (const pelis of movies) {
 }
 
 console.log('Array de categorias sin repetir: ', categoriasUnicas);
+
+
+
+
+
