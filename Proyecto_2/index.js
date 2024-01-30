@@ -42,11 +42,13 @@ const NARANJITOS = [
 
 ];
 
-const user = {
-    imagen: "./Assets/hombre.png",
-    nombre: "UsuarioYo",
-    arroba: "@usuarioYo"
-};
+let USER;
+
+// const user = {
+//     imagen: "./Assets/hombre.png",
+//     nombre: "UsuarioYo",
+//     arroba: "@usuarioYo"
+// };
 
 
 const printNaranjitos = (naranjitos) => {
@@ -122,7 +124,6 @@ const giveLike = (imagen, numberOfLikes, naranjito) => {
     }
 };
 
-printNaranjitos(NARANJITOS);
 
 const printPublicar = () => {
     const publicar = document.querySelector("#publicar");
@@ -149,9 +150,9 @@ const postNaranjito = (input) => {
     const naranjito = {
         texto: input.value,
         user: {
-          imagen: user.imagen,
-          nombre: user.nombre,
-          arroba: user.arroba,
+          imagen: USER.imagen,
+          nombre: USER.nombre,
+          arroba: USER.arroba,
         },
         comentarios: [],
         likes: 0,
@@ -166,4 +167,30 @@ const postNaranjito = (input) => {
 
 };
 
-printPublicar();
+const pageLogin = () => {
+    const modal = document.createElement("div");
+    const img = document.createElement("img");
+
+    modal.className = "login-page";
+    img.src = "./Assets/estudiante.png";
+
+    document.body.append(modal)
+
+};
+
+
+const init = () => {
+    
+    if(!USER) {
+        pageLogin()
+    } else {
+        printPublicar();
+        printNaranjitos(NARANJITOS);
+    }
+
+};
+
+init();
+
+
+

@@ -183,3 +183,34 @@ p, h1, h2, h3, h4, h5, h6, a, button {
     width: 30px;
 }
 
+.login-page {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100svh;
+    background-color: var(--pv-color-4);
+    display: flex;
+    flex-direction: column;
+    padding: var(--pv-padding-xl);
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login-page > img {
+    width: 100px;
+    animation: animacionLoginImg 1s forwards;
+}
+
+@keyframes animacionLoginImg {
+    0% {
+        transform: scale(0) translateX(-1000px);
+    }
+    75% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1) translateX(0px);
+    }
+}
