@@ -25,7 +25,7 @@
 // Supongamos que tenemos un componente simple en React
 // que meustra un encabezado y un párrafo.
 
-import React from "react";
+import React, { useState } from "react";
 
 const MiComponente = () => {
     const nombre = 'Usuario';
@@ -105,3 +105,25 @@ const MyComponent = () => {
 };
 
 export default MyComponent;
+
+
+
+//! REACT ES TOTALMENTE ASÍNCRONO
+
+import React from "react";
+
+const MyComponentAsync = () => {
+    const [name, setName] = React.useState('Pau');
+
+    React.useEffect(() => {
+        console.log(name); // Pau
+        setName('Cristian')
+        console.log(name); // Saldrá Pau
+    }, []);
+    
+    return (
+        <div>Hello my name is {name}</div>
+    )
+}
+
+export default App

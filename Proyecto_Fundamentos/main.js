@@ -75,6 +75,6 @@ const pintarProductos = (listadoProductos) => {
     }
 }
 
-const PRODUCTOS = JSON.parse(localStorage.getItem("products")) || [];
+const productos = JSON.parse(localStorage.getItem("products")) || [];
 
 pintarProductos(PRODUCTOS);
