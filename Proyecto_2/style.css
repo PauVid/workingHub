@@ -214,3 +214,67 @@ p, h1, h2, h3, h4, h5, h6, a, button {
         transform: scale(1) translateX(0px);
     }
 }
+
+.form-login {
+    width: 300px;
+    height: 300px;
+    border-radius: var(--pv-border-radius);
+    background-color: #3d3d3d;
+    margin-top: var(--pv-margin-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--pv-gap-m);
+    padding: var(--pv-padding-m);
+    justify-content: center;
+    align-content: center;
+    animation: animationForm 1s forwards;
+    box-shadow: rgba(255, 255, 255, 0.16) 0px 1px 4px;
+}
+
+.form-login h1 {
+    color: var(--pv-color-1);
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.form-login > input {
+    padding: var(--pv-padding-m) var(--pv-padding-l);
+    border-radius: var(--pv-border-radius);
+    border: none;
+    background-color: #fff;
+
+}
+
+.form-login > button {
+    padding: var(--pv-padding-m) var(--pv-padding-l);
+    border-radius: var(--pv-border-radius);
+    border: none;
+    background-color: var(--pv-color-2);
+    color: var(--pv-color-4);
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.form-login > button:hover {
+    background-color: var(--pv-color-3);
+    color: var(--pv-color-2);
+}
+
+
+@keyframes animationForm {
+    0% {
+        transform: scale(0);
+    }
+    25%{
+        transform: scale(1.05);
+    }
+    50%{
+        transform: scale(0.95);
+    }
+    75%{
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

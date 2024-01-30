@@ -167,17 +167,77 @@ const postNaranjito = (input) => {
 
 };
 
+
+
 const pageLogin = () => {
     const modal = document.createElement("div");
     const img = document.createElement("img");
+    const formLogin = document.createElement("form");
+    const formText = document.createElement("h1")
+    const inputUserName = document.createElement("input");
+    const inputPassword = document.createElement("input");
+    const buttonLogin = document.createElement("button");
 
     modal.className = "login-page";
     img.src = "./Assets/estudiante.png";
+    formLogin.className = "form-login";
+    formText.textContent = "¡Bienvenido!";
+    inputUserName.placeholder = "Paquito...";
+    inputPassword.type = "password";
+    inputPassword.placeholder = "********";
+    buttonLogin.textContent = "Login";
 
-    document.body.append(modal)
+    formLogin.addEventListener("submit", (e) => login(e, inputUserName.value, inputPassword.value, modal));
+
+    formLogin.append(formText)
+    formLogin.append(inputUserName);
+    formLogin.append(inputPassword);
+    formLogin.append(buttonLogin);
+    modal.append(img);
+    modal.append(formLogin);
+    document.body.append(modal);
 
 };
 
+const login = (e, userName, password, modal) => {
+        // Elemento submit me va a provocar una recarga de la página pero nosotros
+        // queremos evitarlo. ¿Cómo?
+        
+        // El método preventDefault de un evento me va a permitir no realizar el 
+        // comportamiento por defecto que tenga el evento de manera implícita
+        e.preventDefault();
+
+        // Para loggear un usuario en nuestra API/ Nuestro servidor, necesitaré 
+        // formular una petición POST y le necesito enviar un objeto stringiceado
+        // es decir, un objeto convertido en string para poder tener formato JSON
+        // del nombre de usuario y password.
+
+        // Además, en la petición voy a tener que indicar el tipo de contenido
+        // que le estoy enviando
+
+        // Toda petición va con un fetch
+
+        fetch("html...", {
+            method: "POST",
+            body: JSON.stringify({
+                "nombre": userName,
+                "password": password
+            })
+            header: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then((res) => {
+            // información de la respuesta al fecth
+            res.json()
+        })
+        .then((res) => {
+            // la información procesada
+            
+            // el login ha sido satisfactorio
+
+        });
+};
 
 const init = () => {
     
