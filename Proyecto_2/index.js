@@ -1,55 +1,48 @@
-const NARANJITOS = [
-        {
-          texto: "¡Aprendiendo a cocinar nuevas recetas! 🍳",
-          user: {
-            imagen: "./Assets/adolescente.png",
-            nombre: "ChefGourmet",
-            arroba: "@GourmetChef123"
-          },
-          comentarios: [
-            {
-              texto: "Esa receta suena deliciosa. ¿Puedes compartirla?",
-              user: {
-                imagen: "./Assets/estudiante.png",
-                nombre: "FoodieAmigo",
-                arroba: "@AmanteDeLaComida"
-              },
-              likes: 8
-            },
-          ],
-          likes: 42
-        },
-        {
-          texto: "Explorando lugares increíbles. #Aventuras",
-          user: {
-            imagen: "./Assets/hombre.png",
-            nombre: "TravelExplorer",
-            arroba: "@ExplorerTraveler"
-          },
-          comentarios: [
-            {
-              texto: "¿Cuál es tu lugar favorito hasta ahora?",
-              user: {
-                imagen: "./Assets/adolescente.png",
-                nombre: "CuriousMind",
-                arroba: "@MindCurious"
-              },
-              likes: 15
-            },
-          ],
-          likes: 35
-        },
+// const NARANJITOS = [
+//         {
+//           texto: "¡Aprendiendo a cocinar nuevas recetas! 🍳",
+//           user: {
+//             imagen: "./Assets/adolescente.png",
+//             nombre: "ChefGourmet",
+//             arroba: "@GourmetChef123"
+//           },
+//           comentarios: [
+//             {
+//               texto: "Esa receta suena deliciosa. ¿Puedes compartirla?",
+//               user: {
+//                 imagen: "./Assets/estudiante.png",
+//                 nombre: "FoodieAmigo",
+//                 arroba: "@AmanteDeLaComida"
+//               },
+//               likes: 8
+//             },
+//           ],
+//           likes: 42
+//         },
+//         {
+//           texto: "Explorando lugares increíbles. #Aventuras",
+//           user: {
+//             imagen: "./Assets/hombre.png",
+//             nombre: "TravelExplorer",
+//             arroba: "@ExplorerTraveler"
+//           },
+//           comentarios: [
+//             {
+//               texto: "¿Cuál es tu lugar favorito hasta ahora?",
+//               user: {
+//                 imagen: "./Assets/adolescente.png",
+//                 nombre: "CuriousMind",
+//                 arroba: "@MindCurious"
+//               },
+//               likes: 15
+//             },
+//           ],
+//           likes: 35
+//         },
 
-];
-
+// ];
+let NARANJITOS;
 let USER;
-
-// const user = {
-//     imagen: "./Assets/hombre.png",
-//     nombre: "UsuarioYo",
-//     arroba: "@usuarioYo"
-// };
-
 
 const printNaranjitos = (naranjitos) => {
 
@@ -124,7 +117,6 @@ const giveLike = (imagen, numberOfLikes, naranjito) => {
     }
 };
 
-
 const printPublicar = () => {
     const publicar = document.querySelector("#publicar");
     const input = document.createElement("input");
@@ -159,6 +151,7 @@ const postNaranjito = (input) => {
     };
 
     input.value = "";
+
     NARANJITOS.push(naranjito);
     
     const newArray = [naranjito];
@@ -167,13 +160,11 @@ const postNaranjito = (input) => {
 
 };
 
-
-
 const pageLogin = () => {
     const modal = document.createElement("div");
     const img = document.createElement("img");
     const formLogin = document.createElement("form");
-    const formText = document.createElement("h1")
+    const formText = document.createElement("h1");
     const inputUserName = document.createElement("input");
     const inputPassword = document.createElement("input");
     const buttonLogin = document.createElement("button");
@@ -187,7 +178,7 @@ const pageLogin = () => {
     inputPassword.placeholder = "********";
     buttonLogin.textContent = "Login";
 
-    formLogin.addEventListener("submit", (e) => login(e, inputUserName.value, inputPassword.value, modal));
+    formLogin.addEventListener("submit", (e) => login(e, inputUserName, inputPassword, modal, formLogin));
 
     formLogin.append(formText)
     formLogin.append(inputUserName);
@@ -199,7 +190,7 @@ const pageLogin = () => {
 
 };
 
-const login = (e, userName, password, modal) => {
+const login = (e, inputUserName, inputPassword, modal, formLogin) => {
         // Elemento submit me va a provocar una recarga de la página pero nosotros
         // queremos evitarlo. ¿Cómo?
         
@@ -217,25 +208,35 @@ const login = (e, userName, password, modal) => {
 
         // Toda petición va con un fetch
 
-        fetch("html...", {
+        fetch("https://users-api-mu.vercel.app/api/v1/users/login", {
             method: "POST",
             body: JSON.stringify({
-                "nombre": userName,
-                "password": password
-            })
-            header: {
+                nombre: inputUserName.value,
+                password: inputPassword.value,
+            }),
+            headers: {
                 "Content-Type": "application/json"
             }
         })
         .then((res) => {
-            // información de la respuesta al fecth
-            res.json()
+            // información de la respuesta al fetch
+            if (res.status === 400) {
+                const error = document.createElement("p");
+                error.textContent = "Usuario o contraseña incorrectos";
+                formLogin.insertBefore(error, inputUserName);
+            }
+            return res.json()
         })
         .then((res) => {
             // la información procesada
-            
-            // el login ha sido satisfactorio
 
+            if (res !== "Usuario no encontrado"){
+            USER = {...res};
+            modal.remove();
+            printPublicar();
+            getUsers();
+            // el login ha sido satisfactorio
+            }
         });
 };
 
@@ -244,13 +245,60 @@ const init = () => {
     if(!USER) {
         pageLogin()
     } else {
+
         printPublicar();
         printNaranjitos(NARANJITOS);
     }
 
 };
 
-init();
+const getUsers = () => {
+    fetch("https://users-api-mu.vercel.app/api/v1/users/login")
+    .then((res) => res.json())
+    .then((users) => getNaranjitos(users));
+};
 
+const getNaranjitos = (users) => {
+    NARANJITOS = [
+        {
+            texto: "¡Aprendiendo a cocinar nuevas recetas! 🍳",
+            user: users[0],
+            comentarios: [
+            {
+            texto: "Esa receta suena deliciosa. ¿Puedes compartirla?",
+            user: users[1]
+            },  
+            ],
+            likes: 12,
+        },
+        {
+            texto: "¡Aprendiendo a cocinar nuevas recetas! 🍳",
+            user: users[2],
+            comentarios: [
+            {
+            texto: "Esa receta suena deliciosa. ¿Puedes compartirla?",
+            user: users[3]
+            },  
+            ],
+            likes: 2140,
+        },
+        {
+            texto: "¡Aprendiendo a cocinar nuevas recetas! 🍳",
+            user: users[4],
+            comentarios: [
+            {
+            texto: "Esa receta suena deliciosa. ¿Puedes compartirla?",
+            user: users[5]
+            },  
+            ],
+            likes: 10,
+        },
+    ];
+
+    printNaranjitos(NARANJITOS);
+};
+
+init(); 
+  
 
 
