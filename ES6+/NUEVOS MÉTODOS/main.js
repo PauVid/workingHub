@@ -26,7 +26,7 @@ const users = [
     {name: "Bob", age: 35 },
 ];
 
-const names = users.map(user => user.name);
+const names = users.map(user => users.name);
 console.log(names); // ["John", "Jane", "Bob"]
 
 // En este caso, tenemos un array users con objetos que tienen dos propiedades: name y age.
