@@ -5,7 +5,7 @@
 :root {
 
   --color-background: whitesmoke;
-  --primary: #111111;
+  --primary: #242424;
   --secondary: #cacaca;
   --logo: #e60022;
   --transparent: rgba(245,245,245, 0.862);
@@ -61,7 +61,7 @@ a {
 .active {
   background-color: var(--primary);
   color: var(--color-background);
-  padding: 1rem;
+  padding: 1rem 1.4rem;
   border-radius: 2rem;
 }
 
@@ -69,8 +69,8 @@ li{
   list-style-type: none;
 }
 
-/* 
-#search__bar {
+
+/* #search__bar {
   min-width: 700px;
   padding: var(--pv-gap-m);
   border-radius: 50px;
@@ -136,7 +136,7 @@ form {
   .search__result {
     width: 100%;
   }
-} */
+}  */
 
 
 /* HEADER STYLES */
@@ -268,6 +268,15 @@ footer {
 .gallery-item .links div {
   display: flex;
   gap: 1rem;
+}
+
+.gallery-item .links-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .gallery-item .full-link {
