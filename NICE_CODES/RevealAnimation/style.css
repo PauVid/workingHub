@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    padding: 50px;
+  }
+  .container {
+    overflow: hidden;
+  }
+  .is-animated {
+    font-family: 'Helvetica Neue';
+    font-weight: bold;
+    padding: 0;
+    position: relative;
+  }
+  .is-animated span {
+    display: block;
+    padding: 0 10px;
+    width: 200px;
+  }
+  .property {
+    font-size: 150%;
+    text-align: right;
+    border-right: 2px solid #000;
+    width: 0;
+    overflow: hidden;
+    float: left;
+    -webkit-animation-name: expandProperty;
+    -webkit-animation-delay: .5s;
+    -webkit-animation-duration: .8s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease-in;
+  }
+  .value {
+    font-size: 300%;
+    float: left;
+    overflow: hidden;
+  }
+  .value span {
+    margin-left: -100%;
+    -webkit-animation-name: expandValue;
+    -webkit-animation-duration: 2.5s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-timing-function: ease-in;
+  }
+  @-webkit-keyframes expandProperty {
+    from {
+      width: 0px;
+    }
+    to {
+      width: 200px;
+    }
+  }
+  @-webkit-keyframes expandValue {
+    from {
+      margin-left: -200px;
+    }
+    to {
+      margin-left: 0;
+    }
+  }
